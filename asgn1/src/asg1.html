@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+Name: Ian Halim
+Email: iphalim@ucsc.edu
+
+Notes to Grader:
+:)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 1</title>
+  </head>
+
+  <body onload="main()">
+    <div>
+      <canvas id="webgl" width="400" height="400">
+        Please use a browser that supports "canvas"
+      </canvas>
+      <img src="drawing.jpg" width="400" height="400">
+    </div>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="asg1.js"></script>
+    <script src="Point.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Drawing.js"></script>
+    <div><input type="button" id="clear" value="Clear Canvas" onClick="clearCanvas()"></div>
+    <br>
+    <div>Drawing Mode:</div>
+    <div>
+      <input type="button" id="square" value="Squares" onClick="setType(POINT)">
+      <input type="button" id="triangle" value="Triangles" onClick="setType(TRIANGLE)">
+      <input type="button" id="circle" value="Circles" onClick="setType(CIRCLE)">
+    </div>
+    <br>
+    <div>Shape Color:</div>
+    <div>
+      <label for="red">Red</label>
+      <input type="range" min="0" max="100" value="100" id="red">
+      <label for="green">Green</label>
+      <input type="range" min="0" max="100" value="100" id="green">
+      <label for="blue">Blue</label>
+      <input type="range" min="0" max="100" value="100" id="blue">
+    </div>
+    <br>
+    <div>
+      <label for="size">Shape Size:</label>
+      <input type="range" min="10" max="100" value="10" id="size">
+      <label for="segment">(Circles) Segment Count:</label>
+      <input type="range" min="3" max="30" value="10" id="segment">
+    </div>
+    <div><input type="button" id="picture" value="Draw a Picture" onClick="draw()"></div>
+  </body>
+</html>
