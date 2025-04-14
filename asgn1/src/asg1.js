@@ -70,6 +70,7 @@ function addActionsForHtmlUI() {
   document.getElementById('red').addEventListener('mouseup', function() { g_selectedColor[0] = this.value / 100; });
   document.getElementById('green').addEventListener('mouseup', function() { g_selectedColor[1] = this.value / 100; });
   document.getElementById('blue').addEventListener('mouseup', function() { g_selectedColor[2] = this.value / 100; });
+  document.getElementById('alpha').addEventListener('mouseup', function() { g_selectedColor[3] = this.value / 100; });
   
   document.getElementById('size').addEventListener('mouseup', function() { g_selectedSize = Number(this.value); });
   document.getElementById('segment').addEventListener('mouseup', function() { g_selectedSegments = Number(this.value); });
@@ -85,7 +86,8 @@ function main() {
   canvas.onmousemove = function(ev) { if (ev.buttons==1) click(ev); };
 
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
-
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
   gl.clear(gl.COLOR_BUFFER_BIT);
 }
 
@@ -138,4 +140,45 @@ function renderAllShapes() {
   for (var i = 0; i < len; i++) {
     g_shapesList[i].render();
   }
+}
+
+function left() {
+  var len = g_shapesList.length;
+  for (var i = 0; i < len; i++) {
+    if (g_shapesList[i].position) g_shapesList[i].position[0] -= 0.1;
+  }
+  renderAllShapes();
+}
+
+function down() {
+  var len = g_shapesList.length;
+  for (var i = 0; i < len; i++) {
+    if (g_shapesList[i].position) g_shapesList[i].position[1] -= 0.1;
+  }
+  renderAllShapes();
+}
+
+function up() {
+  var len = g_shapesList.length;
+  for (var i = 0; i < len; i++) {
+    if (g_shapesList[i].position) g_shapesList[i].position[1] += 0.1;
+  }
+  renderAllShapes();
+}
+
+function right() {
+  var len = g_shapesList.length;
+  for (var i = 0; i < len; i++) {
+    if (g_shapesList[i].position) g_shapesList[i].position[0] += 0.1;
+  }
+  renderAllShapes();
+}
+
+function download() {
+  let url = canvas.toDataURL("image/jpg");
+  const temp = document.createElement('a');
+  temp.href = url;
+  temp.download = "drawing";
+  temp.click();
+  temp.remove();
 }
