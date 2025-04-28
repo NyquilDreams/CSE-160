@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--
+Name: Ian Halim
+Email: iphalim@ucsc.edu
+
+Notes to Grader:
+:)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 2</title>
+  </head>
+
+  <body onload="main()">
+    <div>
+      <canvas id="webgl" width="400" height="400">
+        Please use a browser that supports "canvas"
+      </canvas>
+    </div>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="asg2.js"></script>
+    <script src="Point.js"></script>
+    <script src="Triangle.js"></script>
+    <script src="Circle.js"></script>
+    <script src="Cube.js"></script>
+    <div id="performance"> XXX </div>
+    <br>
+    <label for="angleSlide">Camera Angle</label>
+    <input type="range" min="0" max="100" value="0" id="angleSlide">
+    <br>
+    <label for="leg">Legs</label>
+    <input type="range" min="0" max="75" value="45" id="leg">
+    <br>
+    <label for="foot">Feet</label>
+    <input type="range" min="0" max="30" value="30" id="foot">
+    <br>
+    <label for="toe">Toes</label>
+    <input type="range" min="0" max="30" value="30" id="toe">
+    <br>
+    <label for="wing">Wings</label>
+    <input type="range" min="0" max="30" value="15" id="wing">
+    <br>
+    <input type="button" id="animation" value="Toggle Animation" onClick="toggleAnimation()">
+  </body>
+</html>
