@@ -139,30 +139,32 @@ function renderScene() {
 
   gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
   
+  const cube = new Cube();
+
   var head = new Matrix4();
   head.scale(0.4, 0.4, 0.4);
   head.translate(-0.5, -0.5, 0, 0);
-  drawCube(head, [0.5,1,0.5,1]);
+  cube.drawCube(gl, head, [0.5,1,0.5,1]);
 
   var leftEye = new Matrix4();
   leftEye.scale(0.25, 0.25, 0.25);
   leftEye.translate(0.1, 0, -0.2, 0);
-  drawCube(leftEye, [1,0.0,0.0,1]);
+  cube.drawCube(gl, leftEye, [1,0.0,0.0,1]);
 
   var rightEye = new Matrix4();
   rightEye.scale(0.25, 0.25, 0.25);
   rightEye.translate(-1.1, 0, -0.2, 0);
-  drawCube(rightEye, [1,0.0,0.0,1]);
+  cube.drawCube(gl, rightEye, [1,0.0,0.0,1]);
 
   var proboscis = new Matrix4();
   proboscis.scale(0.1, 0.1, 0.25);
   proboscis.translate(-0.5, -1.5, -1);
-  drawCube(proboscis, [0.5,1,0.5,1]);
+  cube.drawCube(gl, proboscis, [0.5,1,0.5,1]);
 
   var body = new Matrix4();
   body.scale(0.3, 0.3, 0.5);
   body.translate(-0.5, -1, 0.5);
-  drawCube(body, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, body, [0.2,0.4,0.2,1]);
 
   var leg1 = new Matrix4();
   leg1.translate(0.15, -0.185, 0.25);
@@ -174,40 +176,40 @@ function renderScene() {
   }
   var foot1 = new Matrix4(leg1);
   leg1.scale(0.1, 0.15, 0.1);
-  drawCube(leg1, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg1, [0.2,0.4,0.2,1]);
 
   foot1.rotate(-240, 0, 0, 1);
   foot1.rotate(g_footAngle, 0, 0, 1);
   foot1.translate(0.05, -0.225, 0);
   var toe1 = new Matrix4(foot1);
   foot1.scale(0.1, 0.15, 0.1);
-  drawCube(foot1, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot1, [0.2,0.4,0.2,1]);
 
   toe1.rotate(-90, 0, 0, 1);
   toe1.rotate(g_toeAngle, 0, 0, 1);
   toe1.translate(-0.05, 0, 0);
   toe1.scale(0.05, 0.15, 0.1);
-  drawCube(toe1, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe1, [0.2,0.4,0.2,1]);
 
   var leg2 = new Matrix4(leg1);
   leg2.translate(0, 0, 2);
-  drawCube(leg2, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg2, [0.2,0.4,0.2,1]);
   var foot2 = new Matrix4(foot1);
   foot2.translate(0, 0, 2);
-  drawCube(foot2, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot2, [0.2,0.4,0.2,1]);
   var toe2 = new Matrix4(toe1);
   toe2.translate(0, 0, 2);
-  drawCube(toe2, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe2, [0.2,0.4,0.2,1]);
 
   var leg3 = new Matrix4(leg2);
   leg3.translate(0, 0, 2);
-  drawCube(leg3, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg3, [0.2,0.4,0.2,1]);
   var foot3 = new Matrix4(foot2);
   foot3.translate(0, 0, 2);
-  drawCube(foot3, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot3, [0.2,0.4,0.2,1]);
   var toe3 = new Matrix4(toe2);
   toe3.translate(0, 0, 2);
-  drawCube(toe3, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe3, [0.2,0.4,0.2,1]);
   
   var leg4 = new Matrix4();
   leg4.translate(-0.15, -0.185, 0.25);
@@ -219,40 +221,40 @@ function renderScene() {
   }
   var foot4 = new Matrix4(leg4);
   leg4.scale(-0.1, 0.15, 0.1);
-  drawCube(leg4, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg4, [0.2,0.4,0.2,1]);
 
   foot4.rotate(-120, 0, 0, 1);
   foot4.rotate(-g_footAngle, 0, 0, 1);
   foot4.translate(-0.15, -0.225, 0);
   var toe4 = new Matrix4(foot4);
   foot4.scale(0.1, 0.15, 0.1);
-  drawCube(foot4, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot4, [0.2,0.4,0.2,1]);
   
   toe4.rotate(90, 0, 0, 1);
   toe4.translate(0, -0.1, 0);
   toe4.rotate(-g_toeAngle, 0, 0, 1);
   toe4.scale(0.05, 0.15, 0.1);
-  drawCube(toe4, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe4, [0.2,0.4,0.2,1]);
 
   var leg5 = new Matrix4(leg4);
   leg5.translate(0, 0, 2);
-  drawCube(leg5, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg5, [0.2,0.4,0.2,1]);
   var foot5 = new Matrix4(foot4);
   foot5.translate(0, 0, 2);
-  drawCube(foot5, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot5, [0.2,0.4,0.2,1]);
   var toe5 = new Matrix4(toe4);
   toe5.translate(0, 0, 2);
-  drawCube(toe5, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe5, [0.2,0.4,0.2,1]);
 
   var leg6 = new Matrix4(leg5);
   leg6.translate(0, 0, 2);
-  drawCube(leg6, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, leg6, [0.2,0.4,0.2,1]);
   var foot6 = new Matrix4(foot5);
   foot6.translate(0, 0, 2);
-  drawCube(foot6, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, foot6, [0.2,0.4,0.2,1]);
   var toe6 = new Matrix4(toe5);
   toe6.translate(0, 0, 2);
-  drawCube(toe6, [0.2,0.4,0.2,1]);
+  cube.drawCube(gl, toe6, [0.2,0.4,0.2,1]);
 
   var leftWing = new Matrix4();
   if (g_animation) {
@@ -262,7 +264,7 @@ function renderScene() {
   }
   leftWing.scale(0.25, 0.1, 0.35);
   leftWing.translate(0.6, -1, 1.15);
-  drawCube(leftWing, [1,1,1,1]);
+  cube.drawCube(gl, leftWing, [1,1,1,1]);
   
   var rightWing = new Matrix4();
   if (g_animation) {
@@ -272,7 +274,7 @@ function renderScene() {
   }
   rightWing.scale(0.25, 0.1, 0.35);
   rightWing.translate(-1.6, -1, 1.15);
-  drawCube(rightWing, [1,1,1,1]);
+  cube.drawCube(gl, rightWing, [1,1,1,1]);
 
   var duration = performance.now() - startTime;
   sendTextToHTML("ms: " + Math.floor(duration) + " fps: " + Math.floor(10000/duration), "performance");
