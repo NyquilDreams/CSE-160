@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+Name: Ian Halim
+Email: iphalim@ucsc.edu
+
+Notes to Grader:
+:)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 4</title>
+  </head>
+
+  <body onload="main()">
+    <div>
+      <canvas id="webgl" width="400" height="400">
+        Please use a browser that supports "canvas"
+      </canvas>
+    </div>
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="asg4.js"></script>
+    <script src="Camera.js"></script>
+    <script src="Cube.js"></script>
+    <script src="Sphere.js"></script>
+    <div id="performance"> XXX </div>
+    <div>
+      <input type="button" id="on" value="Normal On">
+      <input type="button" id="off" value="Normal Off">
+    </div>
+    <div>
+      <label for="x">Light X</label>
+      <input type="range" min="-30" max="30" value="0" id="x">
+      <label for="y">Light Y</label>
+      <input type="range" min="1" max="99" value="30" id="y">
+      <label for="z">Light Z</label>
+      <input type="range" min="-30" max="30" value="0" id="z">
+    </div>
+    <div>
+      Light:
+      <input type="button" id="on2" value="On">
+      <input type="button" id="off2" value="Off">
+    </div>
+    <div>
+      <label for="red">Red</label>
+      <input type="range" min="0" max="100" value="100" id="red">
+      <label for="green">Green</label>
+      <input type="range" min="0" max="100" value="100" id="green">
+      <label for="blue">Blue</label>
+      <input type="range" min="0" max="100" value="100" id="blue">
+    </div>
+    <div>
+      Movement is the same as asg3<br>
+      Space - Up<br>
+      X - Down<br>
+    </div>
+  </body>
+</html>
